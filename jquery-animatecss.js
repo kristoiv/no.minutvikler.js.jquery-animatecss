@@ -20,7 +20,9 @@
             elm.addClass('animated ' + n);
             elm.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
                 elm.removeClass('animated ' + n);
-                setTimeout(cb, w);
+                if (typeof cb === 'function') {
+                    setTimeout(cb, w);
+                }
             });
         }
         if (this.length > 1) {
