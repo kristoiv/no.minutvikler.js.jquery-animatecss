@@ -14,6 +14,9 @@
      */
     $.fn.animateCss = function(name, callback, wait) {
         var func = function(elm, n, cb, w) {
+            if (w === undefined || w === null) {
+                w = 0;
+            }
             elm.addClass('animated ' + n);
             elm.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
                 elm.removeClass('animated ' + n);
